@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct EmojiAppApp: App {
+    @StateObject var defaultDocument = EmojiArtDocument()
+    
     var body: some Scene {
         WindowGroup {
-            EmojiArtDocumentView()
+            EmojiArtDocumentView(document: defaultDocument)
         }
     }
 }
