@@ -32,13 +32,15 @@ struct EmojiArtDocumentView: View {
 
 extension EmojiArtDocumentView {
     private var documentBody: some View {
-        ZStack {
-            Color.white
-            // image
-            ForEach(document.emojis) { emoji in
-                Text(emoji.string)
-                    .font(emoji.font)
-                    .position(emoji.position)
+        GeometryReader { geometry in    // to position our image centered in view
+            ZStack {
+                Color.white
+                // image
+                ForEach(document.emojis) { emoji in
+                    Text(emoji.string)
+                        .font(emoji.font)
+                        .position(emoji.position.in(geometry))
+                }
             }
         }
     }
