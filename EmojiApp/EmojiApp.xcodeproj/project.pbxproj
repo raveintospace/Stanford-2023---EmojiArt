@@ -14,6 +14,7 @@
 		340A3C072BA75FB900638E9C /* EmojiArtDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340A3C062BA75FB900638E9C /* EmojiArtDocument.swift */; };
 		340A3C092BA7617C00638E9C /* EmojiArtDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340A3C082BA7617C00638E9C /* EmojiArtDocumentView.swift */; };
 		340A3C0B2BA7637600638E9C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340A3C0A2BA7637600638E9C /* Extensions.swift */; };
+		346C6FA32BA8B947006DD461 /* Sturldata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C6FA22BA8B947006DD461 /* Sturldata.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		340A3C062BA75FB900638E9C /* EmojiArtDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtDocument.swift; sourceTree = "<group>"; };
 		340A3C082BA7617C00638E9C /* EmojiArtDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtDocumentView.swift; sourceTree = "<group>"; };
 		340A3C0A2BA7637600638E9C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		346C6FA22BA8B947006DD461 /* Sturldata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sturldata.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			children = (
 				340A3BF32BA75DC500638E9C /* EmojiAppApp.swift */,
 				340A3C0E2BA763AE00638E9C /* Extensions */,
+				346C6FA12BA8B92D006DD461 /* Utilities */,
 				340A3C0D2BA763A400638E9C /* Core */,
 				340A3BF72BA75DC900638E9C /* Assets.xcassets */,
 				340A3BF92BA75DC900638E9C /* Preview Content */,
@@ -114,6 +117,14 @@
 				340A3C0A2BA7637600638E9C /* Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		346C6FA12BA8B92D006DD461 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				346C6FA22BA8B947006DD461 /* Sturldata.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +201,7 @@
 				340A3C0B2BA7637600638E9C /* Extensions.swift in Sources */,
 				340A3C042BA75F0C00638E9C /* EmojiArt.swift in Sources */,
 				340A3BF42BA75DC500638E9C /* EmojiAppApp.swift in Sources */,
+				346C6FA32BA8B947006DD461 /* Sturldata.swift in Sources */,
 				340A3C072BA75FB900638E9C /* EmojiArtDocument.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
