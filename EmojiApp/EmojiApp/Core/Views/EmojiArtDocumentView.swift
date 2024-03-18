@@ -50,7 +50,18 @@ extension EmojiArtDocumentView {
                         .position(emoji.position.in(geometry))
                 }
             }
+            .dropDestination(for: URL.self) { urls, location in
+                return drop(urls, at: location, in: geometry)
+            }
         }
+    }
+    
+    private func drop(_ urls: [URL], at location: CGPoint, in geometry: GeometryProxy) -> Bool {
+        if let url = urls.first {
+            document.setBackground(url)
+            return true
+        }
+        return false
     }
 }
 
