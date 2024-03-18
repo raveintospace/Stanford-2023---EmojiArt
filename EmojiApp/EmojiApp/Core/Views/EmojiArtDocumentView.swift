@@ -9,6 +9,8 @@ import SwiftUI
 
 struct EmojiArtDocumentView: View {
     
+    typealias Emoji = EmojiArt.Emoji
+    
     @ObservedObject var document: EmojiArtDocument
     
     private let emojis = "👻🍎😃🤪☹️🤯🐶🐭🦁🐵🦆🐝🐢🐄🐖🌲🌴🌵🍄🌞🌎🔥🌈🌧️🌨️☁️⛄️⛳️🚗🚙🚓🚲🛺🏍️🚘✈️🛩️🚀🚁🏰🏠❤️💤⛵️"
@@ -31,11 +33,17 @@ struct EmojiArtDocumentView: View {
 }
 
 extension EmojiArtDocumentView {
+    
+    /*
+     GeometryReader lets us position our images & emojis in view knowing that the center of the view is x: 0, y: 0
+     */
+    
     private var documentBody: some View {
-        GeometryReader { geometry in    // to position our image centered in view
+        GeometryReader { geometry in
             ZStack {
                 Color.white
-                // image
+                AsyncImage(url: document.background)
+                    .position(Emoji.Position.zero.in(geometry))
                 ForEach(document.emojis) { emoji in
                     Text(emoji.string)
                         .font(emoji.font)
