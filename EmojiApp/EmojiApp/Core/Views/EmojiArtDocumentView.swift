@@ -16,8 +16,10 @@ struct EmojiArtDocumentView: View {
     private let emojis = "👻🍎😃🤪☹️🤯🐶🐭🦁🐵🦆🐝🐢🐄🐖🌲🌴🌵🍄🌞🌎🔥🌈🌧️🌨️☁️⛄️⛳️🚗🚙🚓🚲🛺🏍️🚘✈️🛩️🚀🚁🏰🏠❤️💤⛵️"
     
     private let paletteEmojiSize: CGFloat = 40
+    
     @State private var zoom: CGFloat = 1
-    @State private var pan: CGSize = .zero
+    @State private var pan: CGOffset = .zero
+    @GestureState private var gestureZoom: CGFloat = 1
     
     var body: some View {
         VStack(spacing: 0) {
@@ -45,11 +47,24 @@ extension EmojiArtDocumentView {
             ZStack {
                 Color.white
                 documentContents(in: geometry)
+                    .scaleEffect(zoom * gestureZoom)
+                    .offset(pan)
             }
+            .gesture(zoomGesture)
             .dropDestination(for: Sturldata.self) { sturldatas, location in
                 return drop(sturldatas, at: location, in: geometry)
             }
         }
+    }
+    
+    private var zoomGesture: some Gesture {
+        MagnificationGesture()
+            .updating($gestureZoom) { inMotionPinchScale, gestureZoom, _ in
+                gestureZoom = inMotionPinchScale
+            }
+            .onEnded { endingPinchScale in
+                zoom *= endingPinchScale
+            }
     }
     
     // ViewBuilder allows to return two views at the same time (as one view)
