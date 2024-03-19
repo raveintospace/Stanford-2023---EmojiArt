@@ -99,7 +99,7 @@ extension EmojiArtDocumentView {
             case .string(let emoji):
                 document.addEmoji(emoji,
                                   at: emojiPosition(at: location, in: geometry),
-                                  size: paletteEmojiSize
+                                  size: paletteEmojiSize / zoom
                 )
                 return true
             default:
