@@ -28,7 +28,7 @@ class PaletteStore: ObservableObject {
     init(named name: String) {
         self.name = name
         
-        if palettes.isEmpty {           // when there's no palette in userdefaults
+        if palettes.isEmpty {           // when there's no palette in UserDefaults
             palettes = Palette.builtins
             if palettes.isEmpty {
                 palettes = [Palette(name: "Warning", emojis: "⚠️")]
