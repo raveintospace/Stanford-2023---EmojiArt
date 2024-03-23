@@ -26,8 +26,12 @@ class EmojiArtDocument: ObservableObject {
     }
     
     private func save(to url: URL) {
-        let data = emojiArt.json()
-        data.write(to: url)
+        do {
+            let data = try emojiArt.json()
+            try data.write(to: url)
+        } catch let error {
+            debugPrint("EmojiArtDocument: error while autosaving \(error.localizedDescription)")
+        }
     }
     
     init() {
