@@ -30,6 +30,10 @@ struct EmojiArt: Codable {
         self = try JSONDecoder().decode(EmojiArt.self, from: json)
     }
     
+    // init when there's nothing to initialize
+    init() {
+    }
+    
     struct Emoji: Identifiable, Codable {
         let string: String
         var position: Position
