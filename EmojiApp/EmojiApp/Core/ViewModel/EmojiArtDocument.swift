@@ -12,7 +12,23 @@ class EmojiArtDocument: ObservableObject {
     typealias Emoji = EmojiArt.Emoji
     
     // model
-    @Published private var emojiArt = EmojiArt()
+    @Published private var emojiArt = EmojiArt() {
+        didSet {
+            autoSave()
+        }
+    }
+    
+    private let autosaveURL: URL = URL.documentsDirectory.appendingPathComponent("Autosaved.emojiart")
+    
+    private func autoSave() {
+        save(to: autosaveURL)
+        debugPrint("autosaved to \(autosaveURL)")
+    }
+    
+    private func save(to url: URL) {
+        let data = emojiArt.json()
+        data.write(to: url)
+    }
     
     init() {
         emojiArt.addEmoji("🍄", at: .init(x: -200, y: -150), size: 200)
