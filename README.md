@@ -18,6 +18,7 @@ Extensions
 - String, to add each unique carachter into an array of Strings
 - CGSize (typealiased as CGOffset), to work with operators (+, +=)
 - Button, to animate its actions
+- UserDefaults, to get and set palettes managed by the user
 
 Sturldata: Type that implements Transferable by proxy to String, Url and Data
 
