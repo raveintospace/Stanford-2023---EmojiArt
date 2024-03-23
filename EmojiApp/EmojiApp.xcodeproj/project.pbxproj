@@ -18,6 +18,7 @@
 		34E20F3C2BAEEF3B00365D84 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E20F3B2BAEEF3A00365D84 /* Palette.swift */; };
 		34E20F3E2BAEF03C00365D84 /* PaletteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E20F3D2BAEF03C00365D84 /* PaletteStore.swift */; };
 		34E20F402BAEF2F500365D84 /* PaletteChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E20F3F2BAEF2F500365D84 /* PaletteChooser.swift */; };
+		34E20F422BAEF56A00365D84 /* ScrollingEmojis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E20F412BAEF56A00365D84 /* ScrollingEmojis.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		34E20F3B2BAEEF3A00365D84 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		34E20F3D2BAEF03C00365D84 /* PaletteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteStore.swift; sourceTree = "<group>"; };
 		34E20F3F2BAEF2F500365D84 /* PaletteChooser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteChooser.swift; sourceTree = "<group>"; };
+		34E20F412BAEF56A00365D84 /* ScrollingEmojis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingEmojis.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			children = (
 				340A3C082BA7617C00638E9C /* EmojiArtDocumentView.swift */,
 				34E20F3F2BAEF2F500365D84 /* PaletteChooser.swift */,
+				34E20F412BAEF56A00365D84 /* ScrollingEmojis.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34E20F422BAEF56A00365D84 /* ScrollingEmojis.swift in Sources */,
 				340A3C092BA7617C00638E9C /* EmojiArtDocumentView.swift in Sources */,
 				34E20F3E2BAEF03C00365D84 /* PaletteStore.swift in Sources */,
 				340A3C0B2BA7637600638E9C /* Extensions.swift in Sources */,
