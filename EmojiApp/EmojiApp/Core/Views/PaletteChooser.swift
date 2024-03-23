@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PaletteChooser: View {
     
-    @ObservedObject var store: PaletteStore
+    @EnvironmentObject var store: PaletteStore
     
     var body: some View {
         HStack {
@@ -20,7 +20,8 @@ struct PaletteChooser: View {
 }
 
 #Preview {
-    PaletteChooser(store: PaletteStore(named: "Sports"))
+    PaletteChooser()
+        .environmentObject(PaletteStore(named: "Preview"))
 }
 
 extension PaletteChooser {
