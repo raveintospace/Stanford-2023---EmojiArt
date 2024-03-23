@@ -26,6 +26,10 @@ struct EmojiArt: Codable {
         return try JSONEncoder().encode(self)
     }
     
+    init(json: Data) throws {
+        self = try JSONDecoder().decode(EmojiArt.self, from: json)
+    }
+    
     struct Emoji: Identifiable, Codable {
         let string: String
         var position: Position
