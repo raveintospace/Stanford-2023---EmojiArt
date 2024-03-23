@@ -31,6 +31,14 @@ extension PaletteChooser {
         AnimatedActionButton(systemImage: "paintpalette") {
             store.cursorIndex += 1
         }
+        .contextMenu {
+            AnimatedActionButton("New", systemImage: "plus") {
+                store.insert(name: "Math", emojis: "➕➖➗✖️♾️")
+            }
+            AnimatedActionButton("Remove", systemImage: "minus.circle") {
+                store.palettes.remove(at: store.cursorIndex)
+            }
+        }
     }
     
     private func view(for palette: Palette) -> some View {
