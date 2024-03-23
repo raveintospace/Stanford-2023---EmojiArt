@@ -1,7 +1,7 @@
 //
 //  EmojiArtDocumentView.swift
 //  EmojiApp
-//
+//  
 //  Created by Uri on 17/3/24.
 //
 
