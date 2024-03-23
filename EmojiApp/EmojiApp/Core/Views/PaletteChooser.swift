@@ -31,11 +31,11 @@ extension PaletteChooser {
         AnimatedActionButton(systemImage: "paintpalette") {
             store.cursorIndex += 1
         }
-        .contextMenu {
+        .contextMenu {      // press & hold to activate
             AnimatedActionButton("New", systemImage: "plus") {
                 store.insert(name: "Math", emojis: "➕➖➗✖️♾️")
             }
-            AnimatedActionButton("Remove", systemImage: "minus.circle") {
+            AnimatedActionButton("Remove", systemImage: "minus.circle", role: .destructive) {
                 store.palettes.remove(at: store.cursorIndex)
             }
         }
