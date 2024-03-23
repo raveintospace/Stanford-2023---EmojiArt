@@ -16,6 +16,7 @@ struct PaletteChooser: View {
             chooser
             view(for: store.palettes[store.cursorIndex])
         }
+        .clipped()  // stay inside its bounds, don't appear on other views
     }
 }
 
@@ -28,7 +29,9 @@ extension PaletteChooser {
     
     private var chooser: some View {
         Button {
-            
+            withAnimation {
+                store.cursorIndex += 1
+            }
         } label: {
             Image(systemName: "paintpalette")
         }
@@ -39,5 +42,7 @@ extension PaletteChooser {
             Text(palette.name)
             ScrollingEmojis(palette.emojis)
         }
+        .id(palette.id) // remove the HStack and present a new one for animation purposes
+        .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .top)))
     }
 }

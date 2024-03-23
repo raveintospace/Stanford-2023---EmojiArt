@@ -28,6 +28,7 @@ class PaletteStore: ObservableObject {
         }
     }
     
+    // updates the index when clicking on the view's button, shows palette at index
     @Published private var _cursorIndex = 0
     
     var cursorIndex: Int {
