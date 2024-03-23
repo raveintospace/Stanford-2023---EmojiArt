@@ -1,5 +1,5 @@
 # Stanford-2023 - EmojiArt
-Draw app made following Stanford University's course CS193p (Developing Applications for iOS using SwiftUI) - https://cs193p.sites.stanford.edu/2023
+App made following Stanford University's course CS193p (Developing Applications for iOS using SwiftUI) - https://cs193p.sites.stanford.edu/2023
 
 ⚠️⚠️ App in construction ⚠️⚠️
 
@@ -11,6 +11,7 @@ Features
 - Gestures to zoom and pan contents of View
 - Button to choose palettes of emojis
 - ContextMenu to add & remove palettes of emojis
+- Automatic save of our canvas whenever it changes, saved as a json
 
 Extensions
 - CGRect, to find its center
