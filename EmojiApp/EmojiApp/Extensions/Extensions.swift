@@ -57,7 +57,7 @@ struct AnimatedActionButton: View {
     init(_ title: String? = nil,
          systemImage: String? = nil,
          role: ButtonRole? = nil,
-         action: @escaping () -> Void
+         action: @escaping () -> Void   // called after the function it was passed to returns
     ) {
         self.title = title
         self.systemImage = systemImage

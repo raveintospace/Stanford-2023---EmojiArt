@@ -38,6 +38,7 @@ class PaletteStore: ObservableObject {
     
     private func boundsCheckedPaletteIndex(_ index: Int) -> Int {
         var index = index % palettes.count
+        debugPrint("Index is \(index)")
         if index < 0 {
             index += palettes.count
         }

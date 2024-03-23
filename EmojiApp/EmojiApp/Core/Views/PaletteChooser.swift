@@ -28,12 +28,8 @@ struct PaletteChooser: View {
 extension PaletteChooser {
     
     private var chooser: some View {
-        Button {
-            withAnimation {
-                store.cursorIndex += 1
-            }
-        } label: {
-            Image(systemName: "paintpalette")
+        AnimatedActionButton(systemImage: "paintpalette") {
+            store.cursorIndex += 1
         }
     }
     
