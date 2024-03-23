@@ -9,29 +9,30 @@ import SwiftUI
 
 class PaletteStore: ObservableObject {
     
+    let name: String
+    
+    private var userDefaultsKey: String { "PaletteStore" + name }
+    
     var palettes: [Palette] {
         get {
-            UserDefaults.standard.palettes(forKey: name)
+            UserDefaults.standard.palettes(forKey: userDefaultsKey)
         }
         set {
             if !newValue.isEmpty {
-                UserDefaults.standard.setValue(newValue, forKey: name)
+                UserDefaults.standard.setValue(newValue, forKey: userDefaultsKey)
                 objectWillChange.send()
             }
         }
     }
     
-    let name: String
-    
     init(named name: String) {
         self.name = name
         
-        if palettes.isEmpty {
+        if palettes.isEmpty {           // when there's no palette in userdefaults
             palettes = Palette.builtins
-        }
-        
-        if palettes.isEmpty {
-            palettes = [Palette(name: "Warning", emojis: "⚠️")]
+            if palettes.isEmpty {
+                palettes = [Palette(name: "Warning", emojis: "⚠️")]
+            }
         }
     }
     
