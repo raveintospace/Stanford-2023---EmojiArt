@@ -9,10 +9,14 @@ import SwiftUI
 
 class PaletteStore: ObservableObject {
     
-    @Published var palettes: [Palette] {
-        didSet {
-            if palettes.isEmpty, !oldValue.isEmpty {
-                palettes = oldValue                         // avoids to delete the last palette
+    var palettes: [Palette] {
+        get {
+            UserDefaults.standard.palettes(forKey: name)
+        }
+        set {
+            if !newValue.isEmpty {
+                UserDefaults.standard.setValue(newValue, forKey: name)
+                objectWillChange.send()
             }
         }
     }
@@ -21,7 +25,10 @@ class PaletteStore: ObservableObject {
     
     init(named name: String) {
         self.name = name
-        palettes = Palette.builtins
+        
+        if palettes.isEmpty {
+            palettes = Palette.builtins
+        }
         
         if palettes.isEmpty {
             palettes = [Palette(name: "Warning", emojis: "⚠️")]
