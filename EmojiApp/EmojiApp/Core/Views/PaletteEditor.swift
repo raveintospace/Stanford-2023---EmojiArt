@@ -50,9 +50,9 @@ struct PaletteEditor: View {
     }
 }
 
-//#Preview {
-//    PaletteEditor()
-//}
+#Preview {
+    PaletteEditor(palette: .constant(PaletteStore(named: "Preview").palettes.first!))
+}
 
 extension PaletteEditor {
     
