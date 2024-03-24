@@ -27,6 +27,9 @@ struct PaletteList: View {
                         store.palettes.remove(atOffsets: indexSet)
                     }
                 }
+                .onMove { IndexSet, newOffset in
+                    store.palettes.move(fromOffsets: IndexSet, toOffset: newOffset)
+                }
             }
             .navigationDestination(for: Palette.self) { palette in
                 PaletteView(palette: palette)
