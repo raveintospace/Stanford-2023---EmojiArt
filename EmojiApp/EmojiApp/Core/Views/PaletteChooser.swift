@@ -39,7 +39,8 @@ extension PaletteChooser {
         .contextMenu {      // press & hold to activate
             gotoMenu
             AnimatedActionButton("New", systemImage: "plus") {
-                store.insert(name: "Math", emojis: "➕➖➗✖️♾️")
+                store.insert(name: "", emojis: "")
+                showPaletteEditor = true
             }
             AnimatedActionButton("Remove", systemImage: "minus.circle", role: .destructive) {
                 store.palettes.remove(at: store.cursorIndex)
