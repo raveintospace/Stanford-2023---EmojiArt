@@ -9,15 +9,18 @@ import SwiftUI
 
 struct PaletteEditor: View {
     
-    let palette: Palette
+    @Binding var palette: Palette
+    
+    private let emojiFont: Font = Font.system(size: 40)
     
     var body: some View {
         Form {
             Section(header: Text("Name")) {
-                Text(palette.name)
+                TextField("Name", text: $palette.name)
             }
             Section(header: Text("Emojis")) {
                 Text("Add Emojis Here")
+                    .font(emojiFont)
                 removeEmojis
             }
         }
@@ -41,5 +44,6 @@ extension PaletteEditor {
                 }
             }
         }
+        .font(emojiFont)
     }
 }
