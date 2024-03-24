@@ -60,7 +60,7 @@ extension PaletteEditor {
     
     private var removeEmojis: some View {
         VStack(alignment: .trailing) {
-            Text("Tap Emoji to Remove It")
+            Text("Tap Emoji to Remove")
                 .font(.caption)
                 .foregroundStyle(Color.red)
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 40))]) {

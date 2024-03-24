@@ -11,6 +11,8 @@ struct PaletteList: View {
     
     @EnvironmentObject var store: PaletteStore
     
+    @State private var showCursorPalette: Bool = false
+    
     var body: some View {
         NavigationStack {
             List {
@@ -39,13 +41,12 @@ struct PaletteList: View {
 //                    PaletteEditor(palette: $store.palettes[index])
 //                }
             }
+            .navigationDestination(isPresented: $showCursorPalette) {       // editor shown when adding a new palette
+                PaletteEditor(palette: $store.palettes[store.cursorIndex])
+            }
             .navigationTitle("\(store.name) Palettes")
             .toolbar {
-                Button {
-                    store.insert(name: "", emojis: "")
-                } label: {
-                    Image(systemName: "plus")
-                }
+                newPaletteButton
             }
         }
     }
@@ -53,4 +54,16 @@ struct PaletteList: View {
 
 #Preview {
     PaletteList()
+}
+
+extension PaletteList {
+    
+    private var newPaletteButton: some View {
+        Button {
+            store.insert(name: "", emojis: "")
+            showCursorPalette = true
+        } label: {
+            Image(systemName: "plus")
+        }
+    }
 }
