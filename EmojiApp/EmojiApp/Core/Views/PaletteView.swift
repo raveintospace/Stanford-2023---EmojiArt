@@ -22,5 +22,6 @@ struct PaletteView: View {
         }
         .padding()
         .font(.largeTitle)
+        .navigationTitle(palette.name)
     }
 }

@@ -21,6 +21,7 @@ struct PaletteList: View {
             .navigationDestination(for: Palette.self) { palette in
                 PaletteView(palette: palette)
             }
+            .navigationTitle("\(store.name) Palettes")
         }
     }
 }
