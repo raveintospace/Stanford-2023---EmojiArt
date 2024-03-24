@@ -12,7 +12,7 @@ struct PaletteEditor: View {
     let palette: Palette
     
     var body: some View {
-        VStack(alignment: .leading) {
+        Form {
             Text(palette.name)
             Text("Add Emojis Here")
             removeEmojis
@@ -20,9 +20,9 @@ struct PaletteEditor: View {
     }
 }
 
-#Preview {
-    PaletteEditor()
-}
+//#Preview {
+//    PaletteEditor()
+//}
 
 extension PaletteEditor {
     

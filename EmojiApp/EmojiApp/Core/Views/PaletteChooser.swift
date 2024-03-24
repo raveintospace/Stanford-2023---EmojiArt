@@ -19,7 +19,7 @@ struct PaletteChooser: View {
         }
         .clipped()  // stay inside its bounds, don't appear on other views
         .sheet(isPresented: $showPaletteEditor) {
-            PaletteEditor()
+            PaletteEditor(palette: store.palettes[store.cursorIndex])
         }
     }
 }
