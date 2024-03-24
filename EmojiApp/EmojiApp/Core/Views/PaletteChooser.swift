@@ -20,6 +20,7 @@ struct PaletteChooser: View {
         .clipped()  // stay inside its bounds, don't appear on other views
         .sheet(isPresented: $showPaletteEditor) {
             PaletteEditor(palette: store.palettes[store.cursorIndex])
+                .font(nil)  // use default font instead of inherited from parent view
         }
     }
 }

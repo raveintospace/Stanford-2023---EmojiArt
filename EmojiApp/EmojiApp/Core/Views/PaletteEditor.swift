@@ -13,9 +13,13 @@ struct PaletteEditor: View {
     
     var body: some View {
         Form {
-            Text(palette.name)
-            Text("Add Emojis Here")
-            removeEmojis
+            Section(header: Text("Name")) {
+                Text(palette.name)
+            }
+            Section(header: Text("Emojis")) {
+                Text("Add Emojis Here")
+                removeEmojis
+            }
         }
     }
 }
