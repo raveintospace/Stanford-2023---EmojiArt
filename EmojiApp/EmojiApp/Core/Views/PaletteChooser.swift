@@ -10,6 +10,7 @@ import SwiftUI
 struct PaletteChooser: View {
     
     @EnvironmentObject var store: PaletteStore
+    @State private var showPaletteEditor: Bool = false
     
     var body: some View {
         HStack {
@@ -17,6 +18,9 @@ struct PaletteChooser: View {
             view(for: store.palettes[store.cursorIndex])
         }
         .clipped()  // stay inside its bounds, don't appear on other views
+        .sheet(isPresented: $showPaletteEditor) {
+            PaletteEditor()
+        }
     }
 }
 
@@ -38,6 +42,9 @@ extension PaletteChooser {
             }
             AnimatedActionButton("Remove", systemImage: "minus.circle", role: .destructive) {
                 store.palettes.remove(at: store.cursorIndex)
+            }
+            AnimatedActionButton("Edit", systemImage: "pencil") {
+                showPaletteEditor = true
             }
         }
     }
