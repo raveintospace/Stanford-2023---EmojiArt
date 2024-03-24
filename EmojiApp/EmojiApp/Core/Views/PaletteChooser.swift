@@ -11,6 +11,7 @@ struct PaletteChooser: View {
     
     @EnvironmentObject var store: PaletteStore
     @State private var showPaletteEditor: Bool = false
+    @State private var showPaletteList: Bool = false
     
     var body: some View {
         HStack {
@@ -21,6 +22,10 @@ struct PaletteChooser: View {
         .sheet(isPresented: $showPaletteEditor) {
             PaletteEditor(palette: $store.palettes[store.cursorIndex])
                 .font(nil)  // use default font instead of inherited from parent view
+        }
+        .sheet(isPresented: $showPaletteList) {
+            PaletteList()
+                .font(nil)
         }
     }
 }
@@ -47,6 +52,9 @@ extension PaletteChooser {
             }
             AnimatedActionButton("Edit", systemImage: "pencil") {
                 showPaletteEditor = true
+            }
+            AnimatedActionButton("List", systemImage: "list.bullet.rectangle.portrait") {
+                showPaletteList = true
             }
         }
     }
