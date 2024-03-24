@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PaletteList: View {
     
-    @EnvironmentObject var store: PaletteStore
+    @ObservedObject var store: PaletteStore
     
     @State private var showCursorPalette: Bool = false
     

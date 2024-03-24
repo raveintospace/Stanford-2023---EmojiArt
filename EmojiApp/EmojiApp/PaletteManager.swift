@@ -20,6 +20,9 @@ struct PaletteManager: View {
                     .tag(store)
             }
         } detail: {
+            if let selectedStore {
+                PaletteList(store: selectedStore)
+            }
             Text("Choose a store")
         }
     }

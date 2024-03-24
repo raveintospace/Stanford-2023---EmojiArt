@@ -24,7 +24,7 @@ struct PaletteChooser: View {
                 .font(nil)  // use default font instead of inherited from parent view
         }
         .sheet(isPresented: $showPaletteList) {
-            PaletteList()
+            PaletteList(store: store)
                 .font(nil)
         }
     }
