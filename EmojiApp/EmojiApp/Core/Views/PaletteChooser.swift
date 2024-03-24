@@ -32,12 +32,28 @@ extension PaletteChooser {
             store.cursorIndex += 1
         }
         .contextMenu {      // press & hold to activate
+            gotoMenu
             AnimatedActionButton("New", systemImage: "plus") {
                 store.insert(name: "Math", emojis: "➕➖➗✖️♾️")
             }
             AnimatedActionButton("Remove", systemImage: "minus.circle", role: .destructive) {
                 store.palettes.remove(at: store.cursorIndex)
             }
+        }
+    }
+    
+    // straight selection of palette
+    private var gotoMenu: some View {
+        Menu {
+            ForEach(store.palettes) { palette in
+                AnimatedActionButton(palette.name) {
+                    if let index = store.palettes.firstIndex(where: { $0.id == palette.id }) {
+                        store.cursorIndex = index
+                    }
+                }
+            }
+        } label: {
+            Label("Go To", systemImage: "text.insert")
         }
     }
     
