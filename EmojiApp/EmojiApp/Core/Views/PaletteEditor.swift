@@ -7,10 +7,18 @@
 
 import SwiftUI
 
+enum Focused {
+    case name
+    case addEmojis
+}
+
 struct PaletteEditor: View {
     
     @Binding var palette: Palette
+    
     @State private var emojisToAdd: String = ""
+    
+    @FocusState private var focused: Focused?
     
     private let emojiFont: Font = Font.system(size: 40)
     
@@ -18,9 +26,11 @@ struct PaletteEditor: View {
         Form {
             Section(header: Text("Name")) {
                 TextField("Name", text: $palette.name)
+                    .focused($focused, equals: .name)
             }
             Section(header: Text("Emojis")) {
                 TextField("Add Emojis Here", text: $emojisToAdd)
+                    .focused($focused, equals: .addEmojis)
                     .font(emojiFont)
                     .onChange(of: emojisToAdd) { _, newValue in
                         palette.emojis = (newValue + palette.emojis)
@@ -28,6 +38,13 @@ struct PaletteEditor: View {
                             .uniqued
                     }
                 removeEmojis
+            }
+        }
+        .onAppear {
+            if palette.name.isEmpty {
+                focused = .name
+            } else {
+                focused = .addEmojis
             }
         }
     }
