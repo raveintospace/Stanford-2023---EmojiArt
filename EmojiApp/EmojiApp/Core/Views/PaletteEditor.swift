@@ -10,6 +10,7 @@ import SwiftUI
 struct PaletteEditor: View {
     
     @Binding var palette: Palette
+    @State private var emojisToAdd: String = ""
     
     private let emojiFont: Font = Font.system(size: 40)
     
@@ -19,8 +20,13 @@ struct PaletteEditor: View {
                 TextField("Name", text: $palette.name)
             }
             Section(header: Text("Emojis")) {
-                Text("Add Emojis Here")
+                TextField("Add Emojis Here", text: $emojisToAdd)
                     .font(emojiFont)
+                    .onChange(of: emojisToAdd) { emojisToAdd in
+                        palette.emojis = (emojisToAdd + palette.emojis)
+                            .filter { $0.isEmoji }
+                            .uniqued
+                    }
                 removeEmojis
             }
         }
@@ -41,6 +47,12 @@ extension PaletteEditor {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 40))]) {
                 ForEach(palette.emojis.uniqued.map(String.init), id: \.self) { emoji in
                     Text(emoji)
+                        .onTapGesture {
+                            withAnimation {
+                                palette.emojis.remove(emoji.first!)
+                                emojisToAdd.remove(emoji.first!)
+                            }
+                        }
                 }
             }
         }
