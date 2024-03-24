@@ -19,11 +19,14 @@ struct PaletteManager: View {
                 Text(store.name)
                     .tag(store)
             }
-        } detail: {
+        } content: {
             if let selectedStore {
                 PaletteList(store: selectedStore)
             }
             Text("Choose a store")
+        } detail: {
+            Text("Choose a palette")
         }
+        
     }
 }

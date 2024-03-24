@@ -14,40 +14,38 @@ struct PaletteList: View {
     @State private var showCursorPalette: Bool = false
     
     var body: some View {
-        NavigationStack {
-            List {
-                ForEach(store.palettes) { palette in
-                    NavigationLink(value: palette) {
-                        VStack(alignment: .leading) {
-                            Text(palette.name)
-                            Text(palette.emojis).lineLimit(1)
-                        }
+        List {
+            ForEach(store.palettes) { palette in
+                NavigationLink(value: palette) {
+                    VStack(alignment: .leading) {
+                        Text(palette.name)
+                        Text(palette.emojis).lineLimit(1)
                     }
                 }
-                .onDelete { indexSet in
-                    withAnimation {
-                        store.palettes.remove(atOffsets: indexSet)
-                    }
-                }
-                .onMove { IndexSet, newOffset in
-                    store.palettes.move(fromOffsets: IndexSet, toOffset: newOffset)
+            }
+            .onDelete { indexSet in
+                withAnimation {
+                    store.palettes.remove(atOffsets: indexSet)
                 }
             }
-            .navigationDestination(for: Palette.self) { palette in
-                PaletteView(palette: palette)
-                
-                // uncomment so list navigates to PaletteEditor instead of PaletteView
-//                if let index = store.palettes.firstIndex(where: { $0.id == palette.id }) {
-//                    PaletteEditor(palette: $store.palettes[index])
-//                }
+            .onMove { IndexSet, newOffset in
+                store.palettes.move(fromOffsets: IndexSet, toOffset: newOffset)
             }
-            .navigationDestination(isPresented: $showCursorPalette) {       // editor shown when adding a new palette
-                PaletteEditor(palette: $store.palettes[store.cursorIndex])
-            }
-            .navigationTitle("\(store.name) Palettes")
-            .toolbar {
-                newPaletteButton
-            }
+        }
+        .navigationDestination(for: Palette.self) { palette in
+            PaletteView(palette: palette)
+            
+            // uncomment so list navigates to PaletteEditor instead of PaletteView
+            //                if let index = store.palettes.firstIndex(where: { $0.id == palette.id }) {
+            //                    PaletteEditor(palette: $store.palettes[index])
+            //                }
+        }
+        .navigationDestination(isPresented: $showCursorPalette) {       // editor shown when adding a new palette
+            PaletteEditor(palette: $store.palettes[store.cursorIndex])
+        }
+        .navigationTitle("\(store.name) Palettes")
+        .toolbar {
+            newPaletteButton
         }
     }
 }
