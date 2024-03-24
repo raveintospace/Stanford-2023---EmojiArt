@@ -43,17 +43,17 @@ extension PaletteChooser {
         }
         .contextMenu {      // press & hold to activate
             selectPaletteMenu
-            AnimatedActionButton("New Palette", systemImage: "plus") {
+            AnimatedActionButton("New palette", systemImage: "plus") {
                 store.insert(name: "", emojis: "")
                 showPaletteEditor = true
             }
-            AnimatedActionButton("Remove Palette", systemImage: "minus.circle", role: .destructive) {
+            AnimatedActionButton("Remove palette", systemImage: "minus.circle", role: .destructive) {
                 store.palettes.remove(at: store.cursorIndex)
             }
-            AnimatedActionButton("Edit Palette", systemImage: "pencil") {
+            AnimatedActionButton("Edit palette", systemImage: "pencil") {
                 showPaletteEditor = true
             }
-            AnimatedActionButton("Explore Palettes", systemImage: "doc.text.magnifyingglass") {
+            AnimatedActionButton("Explore palettes", systemImage: "doc.text.magnifyingglass") {
                 showPaletteList = true
             }
         }
@@ -70,7 +70,7 @@ extension PaletteChooser {
                 }
             }
         } label: {
-            Label("Select Palette", systemImage: "text.insert")
+            Label("Select palette", systemImage: "text.insert")
         }
     }
     

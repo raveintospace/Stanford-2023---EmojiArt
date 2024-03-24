@@ -30,7 +30,7 @@ struct PaletteEditor: View {
                     .autocorrectionDisabled()
             }
             Section(header: Text("Emojis")) {
-                TextField("Add Emojis Here", text: $emojisToAdd)
+                TextField("Add Emojis here", text: $emojisToAdd)
                     .focused($focused, equals: .addEmojis)
                     .autocorrectionDisabled()
                     .font(emojiFont)
@@ -60,7 +60,7 @@ extension PaletteEditor {
     
     private var removeEmojis: some View {
         VStack(alignment: .trailing) {
-            Text("Tap Emoji to Remove")
+            Text("Tap Emoji to remove")
                 .font(.caption)
                 .foregroundStyle(Color.red)
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 40))]) {

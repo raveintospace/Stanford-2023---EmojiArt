@@ -122,11 +122,15 @@ extension UserDefaults {
     }
 }
 
+// Extension for PaletteStore to conform the Hashable protocol, which is compliant to Equatable protocol and lets us compare two instances
 extension PaletteStore: Hashable {
+    
+    // Equatable
     static func == (lhs: PaletteStore, rhs: PaletteStore) -> Bool {
         lhs.name == rhs.name
     }
     
+    // Hashable
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
     }
