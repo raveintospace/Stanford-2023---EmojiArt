@@ -12,8 +12,15 @@ struct PaletteList: View {
     @EnvironmentObject var store: PaletteStore
     
     var body: some View {
-        List(store.palettes) { palette in
-            Text(palette.name)
+        NavigationStack {
+            List(store.palettes) { palette in
+                NavigationLink(value: palette) {
+                    Text(palette.name)
+                }
+            }
+            .navigationDestination(for: Palette.self) { palette in
+                PaletteView(palette: palette)
+            }
         }
     }
 }
