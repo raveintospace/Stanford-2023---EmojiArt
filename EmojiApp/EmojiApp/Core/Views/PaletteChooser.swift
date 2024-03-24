@@ -42,25 +42,25 @@ extension PaletteChooser {
             store.cursorIndex += 1
         }
         .contextMenu {      // press & hold to activate
-            gotoMenu
-            AnimatedActionButton("New", systemImage: "plus") {
+            selectPaletteMenu
+            AnimatedActionButton("New Palette", systemImage: "plus") {
                 store.insert(name: "", emojis: "")
                 showPaletteEditor = true
             }
-            AnimatedActionButton("Remove", systemImage: "minus.circle", role: .destructive) {
+            AnimatedActionButton("Remove Palette", systemImage: "minus.circle", role: .destructive) {
                 store.palettes.remove(at: store.cursorIndex)
             }
-            AnimatedActionButton("Edit", systemImage: "pencil") {
+            AnimatedActionButton("Edit Palette", systemImage: "pencil") {
                 showPaletteEditor = true
             }
-            AnimatedActionButton("List", systemImage: "list.bullet.rectangle.portrait") {
+            AnimatedActionButton("Explore Palettes", systemImage: "doc.text.magnifyingglass") {
                 showPaletteList = true
             }
         }
     }
     
     // straight selection of palette
-    private var gotoMenu: some View {
+    private var selectPaletteMenu: some View {
         Menu {
             ForEach(store.palettes) { palette in
                 AnimatedActionButton(palette.name) {
@@ -70,7 +70,7 @@ extension PaletteChooser {
                 }
             }
         } label: {
-            Label("Go To", systemImage: "text.insert")
+            Label("Select Palette", systemImage: "text.insert")
         }
     }
     

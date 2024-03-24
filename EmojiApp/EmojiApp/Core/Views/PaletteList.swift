@@ -33,8 +33,20 @@ struct PaletteList: View {
             }
             .navigationDestination(for: Palette.self) { palette in
                 PaletteView(palette: palette)
+                
+                // uncomment so list navigates to PaletteEditor instead of PaletteView
+//                if let index = store.palettes.firstIndex(where: { $0.id == palette.id }) {
+//                    PaletteEditor(palette: $store.palettes[index])
+//                }
             }
             .navigationTitle("\(store.name) Palettes")
+            .toolbar {
+                Button {
+                    store.insert(name: "", emojis: "")
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
         }
     }
 }

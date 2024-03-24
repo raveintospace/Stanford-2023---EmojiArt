@@ -27,10 +27,12 @@ struct PaletteEditor: View {
             Section(header: Text("Name")) {
                 TextField("Name", text: $palette.name)
                     .focused($focused, equals: .name)
+                    .autocorrectionDisabled()
             }
             Section(header: Text("Emojis")) {
                 TextField("Add Emojis Here", text: $emojisToAdd)
                     .focused($focused, equals: .addEmojis)
+                    .autocorrectionDisabled()
                     .font(emojiFont)
                     .onChange(of: emojisToAdd) { _, newValue in
                         palette.emojis = (newValue + palette.emojis)
@@ -58,9 +60,9 @@ extension PaletteEditor {
     
     private var removeEmojis: some View {
         VStack(alignment: .trailing) {
-            Text("Tap to Remove Emojis")
+            Text("Tap Emoji to Remove It")
                 .font(.caption)
-                .foregroundStyle(Color.gray)
+                .foregroundStyle(Color.red)
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 40))]) {
                 ForEach(palette.emojis.uniqued.map(String.init), id: \.self) { emoji in
                     Text(emoji)
