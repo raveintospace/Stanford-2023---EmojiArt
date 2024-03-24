@@ -11,6 +11,7 @@ class PaletteStore: ObservableObject, Identifiable {
     
     let name: String
     
+    // identifies each PaletteStore
     var id: String { name }
     
     private var userDefaultsKey: String { "PaletteStore:" + name }
