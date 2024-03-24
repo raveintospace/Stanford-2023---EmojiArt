@@ -22,8 +22,8 @@ struct PaletteEditor: View {
             Section(header: Text("Emojis")) {
                 TextField("Add Emojis Here", text: $emojisToAdd)
                     .font(emojiFont)
-                    .onChange(of: emojisToAdd) { emojisToAdd in
-                        palette.emojis = (emojisToAdd + palette.emojis)
+                    .onChange(of: emojisToAdd) { _, newValue in
+                        palette.emojis = (newValue + palette.emojis)
                             .filter { $0.isEmoji }
                             .uniqued
                     }

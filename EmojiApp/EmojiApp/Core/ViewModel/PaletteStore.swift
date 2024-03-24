@@ -7,11 +7,13 @@
 
 import SwiftUI
 
-class PaletteStore: ObservableObject {
+class PaletteStore: ObservableObject, Identifiable {
     
     let name: String
     
-    private var userDefaultsKey: String { "PaletteStore" + name }
+    var id: String { name }
+    
+    private var userDefaultsKey: String { "PaletteStore:" + name }
     
     var palettes: [Palette] {
         get {
@@ -19,7 +21,7 @@ class PaletteStore: ObservableObject {
         }
         set {
             if !newValue.isEmpty {
-                UserDefaults.standard.setValue(newValue, forKey: userDefaultsKey)
+                UserDefaults.standard.set(newValue, forKey: userDefaultsKey)
                 objectWillChange.send()
             }
         }
@@ -90,5 +92,4 @@ class PaletteStore: ObservableObject {
         func append(name: String, emojis: String) {
             append(Palette(name: name, emojis: emojis))
         }
-
 }
