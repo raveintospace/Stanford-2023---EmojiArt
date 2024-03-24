@@ -50,10 +50,6 @@ struct PaletteList: View {
     }
 }
 
-#Preview {
-    PaletteList()
-}
-
 extension PaletteList {
     
     private var newPaletteButton: some View {
