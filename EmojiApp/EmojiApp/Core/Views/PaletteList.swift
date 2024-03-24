@@ -13,9 +13,19 @@ struct PaletteList: View {
     
     var body: some View {
         NavigationStack {
-            List(store.palettes) { palette in
-                NavigationLink(value: palette) {
-                    Text(palette.name)
+            List {
+                ForEach(store.palettes) { palette in
+                    NavigationLink(value: palette) {
+                        VStack(alignment: .leading) {
+                            Text(palette.name)
+                            Text(palette.emojis).lineLimit(1)
+                        }
+                    }
+                }
+                .onDelete { indexSet in
+                    withAnimation {
+                        store.palettes.remove(atOffsets: indexSet)
+                    }
                 }
             }
             .navigationDestination(for: Palette.self) { palette in
