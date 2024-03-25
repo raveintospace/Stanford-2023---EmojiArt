@@ -52,6 +52,17 @@ final class EmojiArtDocument: ObservableObject {
         emojiArt.emojis
     }
     
+    var bbox: CGRect {
+        var bbox = CGRect.zero
+        for emoji in emojiArt.emojis {
+            bbox = bbox.union(emoji.bbox)
+        }
+        if let backgroundSize = background.uiImage?.size {
+            bbox = bbox.union(CGRect(center: .zero, size: backgroundSize))
+        }
+        return bbox
+    }
+    
 //      Commented from lesson 14
 //    var background: URL? {
 //        emojiArt.background
@@ -139,11 +150,18 @@ extension EmojiArt.Emoji {
     var font: Font {
         Font.system(size: CGFloat(size))
     }
+    
+    var bbox: CGRect {
+        CGRect(
+            center: position.in(nil),
+            size: CGSize(width: CGFloat(size), height: CGFloat(size))
+        )
+    }
 }
 
 extension EmojiArt.Emoji.Position {
-    func `in`(_ geometry: GeometryProxy) -> CGPoint {   // `in` to use reserved keyword "in"
-        let center = geometry.frame(in: .local).center  // .center is an extension of CGRect
+    func `in`(_ geometry: GeometryProxy?) -> CGPoint {   // `in` to use reserved keyword "in"
+        let center = geometry?.frame(in: .local).center ?? .zero  // .center is an extension of CGRect
         return CGPoint(x: center.x + CGFloat(x), y: center.y - CGFloat(y))  //  x & y defined in model's Position
     }
 }

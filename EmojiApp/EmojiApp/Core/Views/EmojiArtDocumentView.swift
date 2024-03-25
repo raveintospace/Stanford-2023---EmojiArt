@@ -59,6 +59,9 @@ extension EmojiArtDocumentView {
                     .offset(pan + gesturePan)
             }
             .gesture(panGesture.simultaneously(with: zoomGesture))
+            .onTapGesture(count: 2) {
+                zoomToFit(document.bbox, in: geometry)
+            }
             .dropDestination(for: Sturldata.self) { sturldatas, location in
                 return drop(sturldatas, at: location, in: geometry)
             }
