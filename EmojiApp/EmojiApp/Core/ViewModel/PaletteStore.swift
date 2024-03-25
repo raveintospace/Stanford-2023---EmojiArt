@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class PaletteStore: ObservableObject, Identifiable {
+final class PaletteStore: ObservableObject, Identifiable {
     
     let name: String
     

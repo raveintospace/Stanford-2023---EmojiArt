@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class EmojiArtDocument: ObservableObject {
+final class EmojiArtDocument: ObservableObject {
     
     typealias Emoji = EmojiArt.Emoji
     
