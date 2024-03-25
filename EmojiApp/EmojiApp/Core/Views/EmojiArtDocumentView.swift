@@ -20,6 +20,8 @@ struct EmojiArtDocumentView: View {
     @GestureState private var gestureZoom: CGFloat = 1
     @GestureState private var gesturePan: CGOffset = .zero
     
+    @State private var showBackgroundFailureAlert: Bool = false
+    
     var body: some View {
         VStack(spacing: 0) {
             documentBody
@@ -60,6 +62,20 @@ extension EmojiArtDocumentView {
             .dropDestination(for: Sturldata.self) { sturldatas, location in
                 return drop(sturldatas, at: location, in: geometry)
             }
+            .onChange(of: document.background.failureReason) { reason, _ in
+                showBackgroundFailureAlert = (reason != nil)
+            }
+            .alert(
+                "Set background",
+                isPresented: $showBackgroundFailureAlert,
+                presenting: document.background.failureReason,
+                actions: { reason in
+                    Button("OK", role: .cancel) { }
+                },
+                message: { reason in
+                    Text(reason)
+                }
+            )
         }
     }
     
