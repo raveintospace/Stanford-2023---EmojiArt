@@ -49,6 +49,39 @@ final class EmojiArtDocument: ObservableObject {
         emojiArt.background
     }
     
+    // MARK: - Background image handling - Lesson 14
+    
+    enum Background {
+        case none
+        case fetching(URL)
+        case found(UIImage)
+        case failed(String)
+        
+        // properties that return their associated data
+        var uiImage: UIImage? {
+            switch self {
+            case .found(let uiImage): return uiImage
+            default: return nil
+            }
+        }
+        
+        var urlBeingFetched: URL? {
+            switch self {
+            case .fetching(let url): return url
+            default: return nil
+            }
+        }
+        
+        var isFetching: Bool { urlBeingFetched != nil }
+        
+        var failureReason: String? {
+            switch self {
+            case .failed(let reason): return reason
+            default: return nil
+            }
+        }
+    }
+    
     // MARK: - Intents
     func setBackground(_ url: URL?) {
         emojiArt.background = url
