@@ -66,7 +66,11 @@ final class EmojiArtDocument: ObservableObject {
         if let url = emojiArt.background {
             background = .fetching(url)
             do {
-                background = .found(try await fetchUIImage(from: url)) // or ...
+                let image = try await fetchUIImage(from: url)
+                // security check to load the most recent url, ie the user drops a 2nd image while the 1st is still loading
+                if url == emojiArt.background {
+                    background = .found(image)
+                }
             } catch {
                 background = .failed("Couldn't set background: \(error.localizedDescription)")
             }
