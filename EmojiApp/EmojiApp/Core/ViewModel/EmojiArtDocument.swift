@@ -45,9 +45,12 @@ final class EmojiArtDocument: ObservableObject {
         emojiArt.emojis
     }
     
-    var background: URL? {
-        emojiArt.background
-    }
+//      Commented from lesson 14
+//    var background: URL? {
+//        emojiArt.background
+//    }
+    
+    @Published var background: Background = .none
     
     // MARK: - Background image handling - Lesson 14
     
