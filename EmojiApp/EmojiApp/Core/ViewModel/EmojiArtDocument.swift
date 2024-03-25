@@ -61,6 +61,7 @@ final class EmojiArtDocument: ObservableObject {
     
     // MARK: - Background image handling - Lesson 14
     
+    @MainActor
     private func fetchBackgroundImage() async {
         if let url = emojiArt.background {
             background = .fetching(url)
