@@ -76,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				340A3BF32BA75DC500638E9C /* EmojiAppApp.swift */,
-				341460632BB08412006C0CA1 /* PaletteManager.swift */,
 				340A3C0E2BA763AE00638E9C /* Extensions */,
 				346C6FA12BA8B92D006DD461 /* Utilities */,
 				340A3C0D2BA763A400638E9C /* Core */,
@@ -121,6 +120,7 @@
 			children = (
 				340A3C062BA75FB900638E9C /* EmojiArtDocument.swift */,
 				34E20F3D2BAEF03C00365D84 /* PaletteStore.swift */,
+				341460632BB08412006C0CA1 /* PaletteManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct EmojiAppApp: App {
+    
     @StateObject var defaultDocument = EmojiArtDocument()
     @StateObject var paletteStore = PaletteStore(named: "Main")
     @StateObject var paletteStore2 = PaletteStore(named: "Alternate")
