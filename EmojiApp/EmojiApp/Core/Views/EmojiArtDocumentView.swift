@@ -13,7 +13,7 @@ struct EmojiArtDocumentView: View {
     
     @ObservedObject var document: EmojiArtDocument
     
-    private let paletteEmojiSize: CGFloat = 40
+    @ScaledMetric var paletteEmojiSize: CGFloat = 40
     
     @State private var zoom: CGFloat = 1
     @State private var pan: CGOffset = .zero
