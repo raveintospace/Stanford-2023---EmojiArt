@@ -7,8 +7,9 @@ With this app you can drag images from other apps (ie: Safari, Photos) and use t
 
 Features
 - GeometryReader to set the center of the view as X: 0, Y: 0
-- Transferable protocol, to drag content & Drop it into other content
-- Gestures to zoom and pan contents of View
+- Transferable protocol to drag content & Drop it into other content
+- Async load of the images dragged from other apps (a URL is passed and converted to a UIImage)
+- Gestures to zoom, pan and fit contents of View
 - Button to change palette of emojis or open a ContextMenu
 - ContextMenu to add, remove, edit, explore or select palettes of emojis
 - Sheet to edit any palette of emojis
@@ -29,3 +30,5 @@ Sturldata: Type that implements Transferable protocol by proxy to String, Url an
 
 MVVM for the whole app (EmojiArt: background image and view components)
 MVVM for emoji collections (Palette)
+
+Custom App Icon made with Canva
