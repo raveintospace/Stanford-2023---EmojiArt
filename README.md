@@ -14,8 +14,11 @@ Features
 - ContextMenu to add, remove, edit, explore or select palettes of emojis
 - Sheet to edit any palette of emojis
 - Sheet to select several palettes of emojis from a list, this list uses a NavigationStack that navigates up to presenting each emoji individually
+- UndoButton to undo & redo actions in the canvas
 - PaletteManager: A NavigationSplitView to manage all the palettes of all the themes, needs to be uncommented to see how it works
-- Automatic save of our canvas whenever it changes, saved as a json
+- The canva is saved as a custom document (.emojiart UTType) automatically with several user intents
+- App scene as DocumentGroup instead of WindowGroup, to work with document management
+- NotificationCenter observes changes in palettes and updates all the open windows of the app
 
 Extensions
 - String, to add each unique carachter into an array of Strings
@@ -25,6 +28,7 @@ Extensions
 - CGSize (typealiased as CGOffset), to work with operators (+, +=)
 - Button, to animate its actions
 - UserDefaults, to get and set palettes managed by the user
+- UTType, to work with DocumentGroup and implement protocol ReferenceFileDocument
 
 Sturldata: Type that implements Transferable protocol by proxy to String, Url and Data
 
