@@ -50,7 +50,7 @@ final class PaletteStore: ObservableObject, Identifiable {
     
     @State private var observer: NSObjectProtocol?
     
-    // deinits the observer when windows are closed
+    // deinits the observer when app windows are closed
     deinit {
         if let observer {
             NotificationCenter.default.removeObserver(observer)
