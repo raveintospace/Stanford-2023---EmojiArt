@@ -1,7 +1,7 @@
 //
 //  EmojiArtDocumentView.swift
 //  EmojiApp
-//  https://www.youtube.com/watch?v=vaX3EU4mhXs - minut 37
+//  
 //  Created by Uri on 17/3/24.
 //
 
