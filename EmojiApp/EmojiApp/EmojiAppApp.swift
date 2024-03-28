@@ -16,9 +16,9 @@ struct EmojiAppApp: App {
     @StateObject var paletteStore3 = PaletteStore(named: "Special")
     
     var body: some Scene {
-        WindowGroup {
+        DocumentGroup(newDocument: { EmojiArtDocument() }) { config in
             //PaletteManager(stores: [paletteStore, paletteStore2, paletteStore3])
-            EmojiArtDocumentView(document: defaultDocument)
+            EmojiArtDocumentView(document: config.document)
                 .environmentObject(paletteStore)
         }
     }

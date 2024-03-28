@@ -6,16 +6,39 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
-final class EmojiArtDocument: ObservableObject {
+extension UTType {
+    static let emojiart = UTType(exportedAs: "edu.stanford.cs193p.emojiart")
+}
+
+final class EmojiArtDocument: ReferenceFileDocument {
+    
+    func snapshot(contentType: UTType) throws -> Data {
+        try emojiArt.json()
+    }
+    
+    func fileWrapper(snapshot: Data, configuration: WriteConfiguration) throws -> FileWrapper {
+        return FileWrapper(regularFileWithContents: snapshot)
+    }
+    
+    static var readableContentTypes: [UTType] {
+        [.emojiart]
+    }
+    
+    required init(configuration: ReadConfiguration) throws {
+        if let data = configuration.file.regularFileContents {
+            emojiArt = try EmojiArt(json: data)
+        } else {
+            throw CocoaError(.fileReadCorruptFile)
+        }
+    }
     
     typealias Emoji = EmojiArt.Emoji
     
     // model
     @Published private var emojiArt = EmojiArt() {
         didSet {
-            autoSave()
-            
             // when background changes
             if emojiArt.background != oldValue.background {
                 Task {
@@ -25,28 +48,7 @@ final class EmojiArtDocument: ObservableObject {
         }
     }
     
-    private let autosaveURL: URL = URL.documentsDirectory.appendingPathComponent("Autosaved.emojiart")
-    
-    private func autoSave() {
-        save(to: autosaveURL)
-        debugPrint("Autosaved to \(autosaveURL)")
-    }
-    
-    private func save(to url: URL) {
-        do {
-            let data = try emojiArt.json()
-            try data.write(to: url)
-        } catch let error {
-            debugPrint("EmojiArtDocument: error while autosaving \(error.localizedDescription)")
-        }
-    }
-    
-    init() {
-        if let data = try? Data(contentsOf: autosaveURL),
-           let autosavedEmojiArt = try? EmojiArt(json: data) {
-            emojiArt = autosavedEmojiArt
-        }
-    }
+    init() {}
     
     var emojis: [Emoji] {
         emojiArt.emojis
