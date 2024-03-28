@@ -104,6 +104,7 @@
 				3414605F2BB05221006C0CA1 /* PaletteList.swift */,
 				341460612BB054E2006C0CA1 /* PaletteView.swift */,
 				34E20F412BAEF56A00365D84 /* ScrollingEmojis.swift */,
+				341460632BB08412006C0CA1 /* PaletteManager.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -122,7 +123,6 @@
 			children = (
 				340A3C062BA75FB900638E9C /* EmojiArtDocument.swift */,
 				34E20F3D2BAEF03C00365D84 /* PaletteStore.swift */,
-				341460632BB08412006C0CA1 /* PaletteManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
