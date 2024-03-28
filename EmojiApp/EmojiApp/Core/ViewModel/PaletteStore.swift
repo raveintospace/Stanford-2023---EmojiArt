@@ -37,6 +37,24 @@ final class PaletteStore: ObservableObject, Identifiable {
                 palettes = [Palette(name: "Warning", emojis: "⚠️")]
             }
         }
+        
+        // update all the windows of the app when palettes are updated in any of them
+        observer = NotificationCenter.default.addObserver(
+            forName: UserDefaults.didChangeNotification,
+            object: nil,
+            queue: .main) { [weak self] notification in
+                guard let self = self else { return }
+                self.objectWillChange.send()
+            }
+    }
+    
+    @State private var observer: NSObjectProtocol?
+    
+    // deinits the observer when windows are closed
+    deinit {
+        if let observer {
+            NotificationCenter.default.removeObserver(observer)
+        }
     }
     
     // updates the index when clicking on the view's button, shows palette at index
