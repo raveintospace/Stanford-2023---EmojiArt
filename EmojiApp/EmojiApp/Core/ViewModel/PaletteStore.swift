@@ -44,7 +44,9 @@ final class PaletteStore: ObservableObject, Identifiable {
             object: nil,
             queue: .main) { [weak self] notification in
                 guard let self = self else { return }
-                self.objectWillChange.send()
+                DispatchQueue.main.async {
+                    self.objectWillChange.send()
+                }
             }
     }
     
