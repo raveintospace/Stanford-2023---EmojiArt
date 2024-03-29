@@ -79,6 +79,8 @@ extension PaletteChooser {
     private func view(for palette: Palette) -> some View {
         HStack {
             Text(palette.name)
+                .foregroundStyle(.accent)
+                .bold()
             ScrollingEmojis(palette.emojis)
         }
         .id(palette.id) // remove the HStack and present a new one for animation purposes

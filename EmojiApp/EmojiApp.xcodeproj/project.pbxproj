@@ -160,9 +160,9 @@
 		34A990DC2BB5E3F1007BE0C5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				344C85CF2BB7116700A03A36 /* AnimatedActionButton.swift */,
 				34A990DD2BB5E424007BE0C5 /* UndoButton.swift */,
 				341460632BB08412006C0CA1 /* PaletteManager.swift */,
-				344C85CF2BB7116700A03A36 /* AnimatedActionButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
