@@ -58,7 +58,7 @@ extension EmojiArtDocumentView {
                 if document.background.isFetching {
                     ProgressView()
                         .scaleEffect(2)
-                        .tint(.blue)
+                        .tint(.white)
                         .position(Emoji.Position.zero.in(geometry))
                 }
                 documentContents(in: geometry)
