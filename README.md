@@ -1,10 +1,11 @@
 # Stanford-2023 - EmojiArt
 App developed following Stanford University's course CS193p (Developing Applications for iOS using SwiftUI) - https://cs193p.sites.stanford.edu/2023
 
+With this app you can drag images from other apps (ie: Safari, Chrome) and use them as the background of the app's canvas, where you can drop emojis available in the app as palettes.
+##
 <div style="text-align:center;">
 <img src="EmojiApp/EmojiApp/Assets.xcassets/AppIcon.appiconset/emojiIcon.png" alt="App icon" title="App icon" width="150" height="150">
 </div>
-With this app you can drag images from other apps (ie: Safari, Photos) and use them as the background of the app's canvas, where you can drop emojis available in the app as palettes.
 
 ## This app features 
 - App scene as DocumentGroup instead of WindowGroup, to work with document management
