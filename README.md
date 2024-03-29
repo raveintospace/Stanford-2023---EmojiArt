@@ -51,10 +51,11 @@ With this app you can drag images from other apps (ie: Safari, Photos) and use t
     <img src="Screenshots/Simulator Screenshot - iPad Pro (12.9-inch) (6th generation) - 2024-03-29 at 16.34.19.png" alt="Home View" title="Home View" width="300">
     <img src="Screenshots/Simulator Screenshot - iPad Pro (12.9-inch) (6th generation) - 2024-03-29 at 16.39.44.png" alt="Canva View & Undo button" title="Canva View & Undo button" width="300">
     <img src="Screenshots/Simulator Screenshot - iPad Pro (12.9-inch) (6th generation) - 2024-03-29 at 16.40.03.png" alt="Canva View & Context Menu" title="Canva View & Context Menu" width="300">
+    <img src="Screenshots/Simulator Screenshot - iPad Pro (12.9-inch) (6th generation) - 2024-03-29 at 16.40.14.png" alt="Select palette" title="Select palette" width="300">
 </div> 
 <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
-    <img src="Screenshots/Simulator Screenshot - iPad Pro (12.9-inch) (6th generation) - 2024-03-29 at 16.40.14.png" alt="Select palette" title="Select palette" width="300">
     <img src="Screenshots/Simulator Screenshot - iPad Pro (12.9-inch) (6th generation) - 2024-03-29 at 16.40.23.png" alt="Explore palettes" title="Explore palettes" width="300">
     <img src="Screenshots/Simulator Screenshot - iPad Pro (12.9-inch) (6th generation) - 2024-03-29 at 16.45.30.png" alt="Edit palette" title="Edit palette" width="300">
-    <img src="Screenshots/Simulator Screenshot - iPad Pro (12.9-inch) (6th generation) - 2024-03-29 at 16.49.07.png" alt="Split View" title="Split View " width="300">
+    <img src="Screenshots/Simulator Screenshot - iPad Pro (12.9-inch) (6th generation) - 2024-03-29 at 16.49.07.png" alt="Split View with another app" title="Split View with another app" width="300">
+    <img src="Screenshots/Simulator Screenshot - iPad Pro (12.9-inch) (6th generation) - 2024-03-29 at 17.21.38.png" alt="Two windows of EmojiArt" title="Two windows of EmojiArt" width="300">
 </div> 
