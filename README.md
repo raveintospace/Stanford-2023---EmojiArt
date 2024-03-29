@@ -3,9 +3,9 @@ App developed following Stanford University's course CS193p (Developing Applicat
 
 With this app you can drag images from other apps (ie: Safari, Chrome) and use them as the background of the app's canvas, where you can drop emojis available in the app as palettes.
 ##
-<div style="text-align:center;">
+<p align="center">
 <img src="EmojiApp/EmojiApp/Assets.xcassets/AppIcon.appiconset/emojiIcon.png" alt="App icon" title="App icon" width="150" height="150">
-</div>
+</p>
 
 ## This app features 
 - App scene as DocumentGroup instead of WindowGroup, to work with document management
